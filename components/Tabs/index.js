@@ -21,10 +21,12 @@ function createTab(i){
   return tab;
 };
 
+
 axios
 .get(`https://lambda-times-backend.herokuapp.com/topics`)
 .then (response => {
   topicsArr = response.data.topics;
+  topicsArr.unshift('all');
   console.log(topicsArr);
   console.log(tabs);
   topicsArr.forEach(i => {
