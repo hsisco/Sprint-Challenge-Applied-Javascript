@@ -8,13 +8,13 @@
 */
 
 /* HTML:
-  <div class="carousel">
-    <div class="left-button"> < </div>
-    <img src="./assets/carousel/mountains.jpeg" />
-    <img src="./assets/carousel/computer.jpeg" />
-    <img src="./assets/carousel/trees.jpeg" />
-    <img src="./assets/carousel/turntable.jpeg" />
-    <div class="right-button"> > </div>
+  <div class='carousel'>
+    <div class='left-button'> < </div>
+    <img src='./assets/carousel/mountains.jpeg' />
+    <img src='./assets/carousel/computer.jpeg' />
+    <img src='./assets/carousel/trees.jpeg' />
+    <img src='./assets/carousel/turntable.jpeg' />
+    <div class='right-button'> > </div>
   </div>
 */
 const carouselContainer = document.querySelector('.carousel-container');
@@ -29,8 +29,28 @@ function carouselMaker() {
     img4 = document.createElement('img'),
     rightButton = document.createElement('div');
 
-    carousel.classList.add("carousel");
-    leftButton.classList.add("left-button");
+    carouselContainer.appendChild(carousel);
+    carousel.appendChild(leftButton);
+    carousel.appendChild(img1);
+    carousel.appendChild(img2);
+    carousel.appendChild(img3);
+    carousel.appendChild(img4);
+    carousel.appendChild(rightButton);
 
+    carousel.classList.add('carousel');
+    leftButton.classList.add('left-button');
+    rightButton.classList.add('right-button');
 
+    leftButton.textContent = '<';
+    img1.src = './assets/carousel/mountains.jpeg';
+    img2.src = './assets/carousel/computer.jpeg';
+    img3.src = './assets/carousel/trees.jpeg';
+    img4.src = './assets/carousel/turntable.jpeg';
+    rightButton.textContent = '>';
+
+    leftButton.addEventListener('click', leftClick);
+    leftButton.style.zIndex = '99';
+    rightButton.addEventListener('click', rightClick);
+    rightButton.style.zIndex = '99';
 }
+
